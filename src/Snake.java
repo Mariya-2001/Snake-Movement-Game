@@ -71,6 +71,18 @@ public class Snake {
 
     }
 
+    public List<Direction> getValidMovement(GameMap gameMap){
+        List<Direction> validMovement =new java.util.ArrayList<>();
+        for(Direction direction: Direction.values()){
+            Position test = getSnakeHead().movement(direction);
+
+            if(gameMap.isValidPosition(test) && (!gameMap.isSnakeBody(test) || test.equals(getSnakeTail()))){
+                validMovement.add(direction);
+            }
+        }
+        return validMovement;
+    }
+
     public int getSnakeLength(){
         return snakeBody.size();
     }
