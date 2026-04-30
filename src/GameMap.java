@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameMap {
     public int rows;
     public int columns;
@@ -58,6 +61,19 @@ public class GameMap {
 
     public char[][] getGrid(){
         return grid;
+    }
+
+    public List<Position> getSnakePosition(){
+        List<Position> positions =new ArrayList<>();
+        for(int x=0;x<rows;x++){
+            for(int y=0;y<columns;y++){
+                if(grid[x][y]==Snake_Body){
+                    positions.add(
+                            new Position(x,y));
+                }
+            }
+        }
+        return positions;
     }
 
 }
