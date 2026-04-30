@@ -38,6 +38,16 @@ public class GameMap {
 
     }
 
+    public void placeSnake(Position position){
+        setC(position,Snake_Body);
+
+    }
+
+    public void clearCells(Position position){
+        setC(position,Empty);
+
+    }
+
     public int getRows(){
         return rows;
     }
