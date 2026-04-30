@@ -12,4 +12,24 @@ public class GameMap {
         initEmptyMap();
     }
 
+    public void initEmptyMap(){
+        for(int x=0;x<rows;x++){
+            for(int y=0;y<columns;y++){
+                grid[x][y] = Empty;
+            }
+        }
+    }
+
+    public int getRows(){
+        return rows;
+    }
+
+    public int getColumns(){
+        return columns;
+    }
+
+    public char[][] getGrid(){
+        return grid;
+    }
+
 }
