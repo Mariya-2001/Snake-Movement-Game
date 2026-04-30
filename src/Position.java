@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Position {
     public int columns;
     public int rows;
@@ -29,4 +31,20 @@ public class Position {
                 return this;
         }
     }
+
+    @Override
+    public boolean equals(Object object){
+        if (this==object)
+            return true;
+        if(object==null || getClass()!= object.getClass())
+            return false;
+        Position position=(Position) object;
+        return rows==position.rows&&columns==position.columns;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(rows,columns);
+    }
+
 }
