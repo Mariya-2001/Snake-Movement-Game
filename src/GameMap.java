@@ -20,6 +20,24 @@ public class GameMap {
         }
     }
 
+    public void setC(Position position, char val){
+        if(isValidPosition(position)){
+            grid[position.getRows()][position.getColumns()] =val;
+        }
+    }
+
+    public char getC(Position position){
+        if(isValidPosition(position)){
+            return grid[position.getRows()][position.getColumns()];
+        }
+        return '\0';
+    }
+
+    public boolean isValidPosition(Position position){
+        return position.getRows() >=0 && position.getRows() <rows && position.getColumns() >= 0 && position.getColumns() <columns;
+
+    }
+
     public int getRows(){
         return rows;
     }
