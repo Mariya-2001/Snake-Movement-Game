@@ -31,4 +31,29 @@ public class Snake {
 
     }
 
+    public Position getSnakeHead(){
+        return
+                snakeBody.getLast();
+    }
+
+    public Position getSnakeTail(){
+        return
+                snakeBody.getFirst();
+
+    }
+
+    public List<Position> getSnakeBody(){
+        return new LinkedList<>(snakeBody);
+
+    }
+
+    public int getSnakeLength(){
+        return snakeBody.size();
+    }
+
+    public Direction getcurrDirection(){
+        return currDirection;
+    }
+
+
 }
