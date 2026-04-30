@@ -36,6 +36,16 @@ public class GameMap {
         return '\0';
     }
 
+    public boolean isEmpty(Position position){
+        return isValidPosition(position) && grid[position.getRows()][position.getColumns()] ==Empty;
+
+    }
+
+    public boolean isSnakeBody(Position position){
+        return isValidPosition(position) &&
+                grid[position.getRows()][position.getColumns()]==Snake_Body;
+    }
+
     public boolean isValidPosition(Position position){
         return position.getRows() >=0 && position.getRows() <rows && position.getColumns() >= 0 && position.getColumns() <columns;
 
