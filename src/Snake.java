@@ -47,6 +47,30 @@ public class Snake {
 
     }
 
+    public boolean movement(Direction direction,GameMap gameMap){
+        Position newSnakeHead=getSnakeHead().movement(direction);
+
+        if(!gameMap.isValidPosition(newSnakeHead)){
+            return false;
+        }
+
+        if(gameMap.isSnakeBody(newSnakeHead) && !newSnakeHead.equals(getSnakeTail())){
+            return false;
+        }
+
+        // Moving the head
+        snakeBody.addLast(newSnakeHead);
+        gameMap.placeSnake(newSnakeHead);
+
+        // Removing the tail
+        Position oldSnakeTail = snakeBody.removeFirst();
+        gameMap.clearCells(oldSnakeTail);
+
+        currDirection = direction;
+        return true;
+
+    }
+
     public int getSnakeLength(){
         return snakeBody.size();
     }
